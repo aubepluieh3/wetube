@@ -37,8 +37,12 @@ export const postJoin = async (req, res) => {
   }
 };
 
-export const getLogin = (req, res) =>
+export const getLogin = (req, res) => {
+  if (req.session.loggedIn) {
+    return res.redirect("/");
+  }
   res.render("login", { pageTitle: "Login" });
+};
 
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -147,17 +151,45 @@ export const getEdit = (req, res) => {
 export const postEdit = async (req, res) => {
   const {
     session: {
-      user: { _id },
+      user: { _id, avatarUrl, email: sessionEmail, username: sessionUsername },
     },
     body: { name, email, username, location },
+    file,
   } = req;
 
-  await User.findByIdAndUpdate(_id, {
-    name,
-    email,
-    username,
-    location,
-  });
+  let searchParam = [];
+  if (sessionEmail !== email) {
+    searchParam.push({ email });
+  }
+
+  if (sessionUsername !== username) {
+    searchParam.push({ username });
+  }
+
+  if (searchParam.length > 0) {
+    const foundUser = await User.findOne({ $or: searchParam });
+    if (foundUser && foundUser._id.toString() !== _id) {
+      return res.status(400).render("edit-profile", {
+        pageTitle: "Edit Profile",
+        errorMessage: "This is username/email is already taken.",
+      });
+    }
+  }
+
+  const isHeroku = process.env.NODE_ENV === "production";
+
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+  req.session.user = updatedUser;
   return res.render("edit-profile");
 };
 
