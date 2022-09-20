@@ -156,7 +156,7 @@ export const postEdit = async (req, res) => {
     body: { name, email, username, location },
     file,
   } = req;
-  console.log(file);
+
   let searchParam = [];
   if (sessionEmail !== email) {
     searchParam.push({ email });
@@ -190,7 +190,7 @@ export const postEdit = async (req, res) => {
     { new: true }
   );
   req.session.user = updatedUser;
-  return res.render("edit-profile");
+  return res.redirect("/users/edit");
 };
 
 export const getChangePassword = (req, res) => {
@@ -224,7 +224,7 @@ export const postChangePassword = async (req, res) => {
   }
   user.password = newPassword;
   await user.save();
-  return res.redirect("/");
+  return res.redirect("/users/logout");
 };
 
 export const see = (req, res) => res.send("See User");
