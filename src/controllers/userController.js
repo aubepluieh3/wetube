@@ -12,7 +12,6 @@ export const postJoin = async (req, res) => {
       errorMessage: "Password confirmation does not match.",
     });
   }
-
   const exists = await User.exists({ $or: [{ username }, { email }] });
   if (exists) {
     return res.status(400).render("join", {
@@ -36,13 +35,8 @@ export const postJoin = async (req, res) => {
     });
   }
 };
-
-export const getLogin = (req, res) => {
-  if (req.session.loggedIn) {
-    return res.redirect("/");
-  }
+export const getLogin = (req, res) =>
   res.render("login", { pageTitle: "Login" });
-};
 
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -116,9 +110,9 @@ export const finishGithubLogin = async (req, res) => {
       (email) => email.primary === true && email.verified === true
     );
     if (!emailObj) {
+      // set notification
       return res.redirect("/login");
     }
-
     let user = await User.findOne({ email: emailObj.email });
     if (!user) {
       user = await User.create({
@@ -140,45 +134,22 @@ export const finishGithubLogin = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-  req.session.destroy();
   req.flash("info", "Bye Bye");
+  req.session.destroy();
   return res.redirect("/");
 };
-
 export const getEdit = (req, res) => {
   return res.render("edit-profile", { pageTitle: "Edit Profile" });
 };
-
 export const postEdit = async (req, res) => {
   const {
     session: {
-      user: { _id, avatarUrl, email: sessionEmail, username: sessionUsername },
+      user: { _id, avatarUrl },
     },
     body: { name, email, username, location },
     file,
   } = req;
-
-  let searchParam = [];
-  if (sessionEmail !== email) {
-    searchParam.push({ email });
-  }
-
-  if (sessionUsername !== username) {
-    searchParam.push({ username });
-  }
-
-  if (searchParam.length > 0) {
-    const foundUser = await User.findOne({ $or: searchParam });
-    if (foundUser && foundUser._id.toString() !== _id) {
-      return res.status(400).render("edit-profile", {
-        pageTitle: "Edit Profile",
-        errorMessage: "This is username/email is already taken.",
-      });
-    }
-  }
-
   const isHeroku = process.env.NODE_ENV === "production";
-
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
@@ -201,7 +172,6 @@ export const getChangePassword = (req, res) => {
   }
   return res.render("users/change-password", { pageTitle: "Change Password" });
 };
-
 export const postChangePassword = async (req, res) => {
   const {
     session: {
@@ -217,7 +187,6 @@ export const postChangePassword = async (req, res) => {
       errorMessage: "The current password is incorrect",
     });
   }
-
   if (newPassword !== newPasswordConfirmation) {
     return res.status(400).render("users/change-password", {
       pageTitle: "Change Password",
@@ -242,7 +211,6 @@ export const see = async (req, res) => {
   if (!user) {
     return res.status(404).render("404", { pageTitle: "User not found." });
   }
-
   return res.render("users/profile", {
     pageTitle: user.name,
     user,
