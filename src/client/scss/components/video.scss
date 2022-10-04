@@ -1,4 +1,8 @@
 .video-mixin {
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   .video-mixin__thumb {
     height: 140px;
     border-radius: 7px;

@@ -8,6 +8,7 @@
   }
   .video__createdAt {
     font-size: 12px;
+    margin-bottom: 10px;
   }
   .video__owner {
     margin-bottom: 5px;
@@ -17,6 +18,25 @@
       text-decoration: underline;
     }
   }
+}
+
+.video__edit a,
+.video__delete a {
+  background-color: $pink;
+  border-radius: 5px;
+  font-size: 20px;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 0px 5px;
+}
+
+.video__comment-form button {
+  background-color: $pink;
+  border-style: none;
+  color: white;
+  border-radius: 5px;
+  margin-left: 5px;
 }
 
 .video__comments {
@@ -29,9 +49,12 @@
   .video__comment {
     padding: 10px;
     border-radius: 9999px;
-    background-color: white;
+    background-color: $lightPink;
     color: black;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
