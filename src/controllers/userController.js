@@ -4,7 +4,8 @@ import bcrypt from "bcrypt";
 
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
-  const { name, username, email, password, password2, location } = req.body;
+  const { name, username, email, password, password2, location, message } =
+    req.body;
   const pageTitle = "Join";
   if (password !== password2) {
     return res.status(400).render("join", {
@@ -26,6 +27,7 @@ export const postJoin = async (req, res) => {
       email,
       password,
       location,
+      message,
     });
     return res.redirect("/login");
   } catch (error) {
@@ -123,6 +125,7 @@ export const finishGithubLogin = async (req, res) => {
         password: "",
         socialOnly: true,
         location: userData.location,
+        message: userData.message,
       });
     }
     req.session.loggedIn = true;
@@ -146,7 +149,7 @@ export const postEdit = async (req, res) => {
     session: {
       user: { _id, avatarUrl },
     },
-    body: { name, email, username, location },
+    body: { name, email, username, location, message },
     file,
   } = req;
 
@@ -159,6 +162,7 @@ export const postEdit = async (req, res) => {
       email,
       username,
       location,
+      message,
     },
     { new: true }
   );

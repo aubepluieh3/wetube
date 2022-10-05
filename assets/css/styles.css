@@ -162,7 +162,7 @@ header ul i {
 }
 header .header__btn {
   background-color: white;
-  color: rgba(255, 255, 255, 0.9960784314);
+  color: black;
   padding: 5px 10px;
   border-radius: 5px;
 }
@@ -390,6 +390,11 @@ input[type=submit]:disabled,
 }
 .profile__data h3 {
   font-size: 18px;
+}
+.profile__data span {
+  background-color: rgb(253, 216, 228);
+  margin-top: 5px;
+  font-size: 15px;
 }
 
 form label {
