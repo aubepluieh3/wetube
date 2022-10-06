@@ -209,6 +209,10 @@ footer {
 .empty__message {
   margin-bottom: 50px;
   font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .video-grid {

@@ -12,8 +12,12 @@ block content
             span 😎        
         h3=user.name
         span=user.message 
-    div.video-grid 
-        each video in user.videos.reverse() 
-            +video(video)
-        else 
-            span.empty__message No videos found    
+    if (!video)
+        div.empty__message
+            span No videos found💦   
+    else    
+        div.video-grid 
+            each video in user.videos.reverse() 
+                +video(video)
+
+             
