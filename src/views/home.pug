@@ -2,10 +2,9 @@ extends base
 include mixins/video
 
 block content 
-    if (!video)
-        div.empty__message
-            span No videos found💦   
-    else    
-        div.video-grid 
-            each video in user.videos.reverse() 
-                +video(video)
+    div.video-grid 
+        each video in videos
+            +video(video)
+        else 
+            div.empty__message
+                span No videos found💦   

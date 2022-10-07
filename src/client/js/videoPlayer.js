@@ -101,7 +101,6 @@ const handleMouseLeave = () => {
 };
 
 const handleSpaceDown = (event) => {
-  console.log("keydown Event", event);
   const { keyCode } = event;
   if (keyCode === 32) {
     if (video.paused) {
@@ -111,6 +110,19 @@ const handleSpaceDown = (event) => {
     }
     playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
   }
+};
+
+const handleKeyDown = (event) => {
+  const { keyCode } = event;
+  if (keyCode === 70) {
+    videoContainer.requestFullscreen();
+    fullScreenIcon.classList = "fas fa-compress";
+  }
+};
+
+const handleFullScreenChange = (event) => {
+  const fullscreen = document.fullscreenElement;
+  fullScreenIcon.classList = fullscreen ? "fas fa-compress" : "fas fa-expand";
 };
 
 const handleEnded = () => {
@@ -131,3 +143,5 @@ video.addEventListener("ended", handleEnded);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 window.addEventListener("keydown", handleSpaceDown);
+window.addEventListener("keydown", handleKeyDown);
+window.addEventListener("fullscreenchange", handleFullScreenChange);
