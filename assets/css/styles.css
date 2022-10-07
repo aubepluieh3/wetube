@@ -455,6 +455,17 @@ form label {
   color: cornflowerblue;
   text-decoration: underline;
 }
+.video__data .video__hashtags {
+  display: flex;
+  margin-bottom: 10px;
+}
+.video__data .video__hashtags .video__hashtag {
+  margin-right: 5px;
+  background-color: grey;
+  color: white;
+  padding: 3px 5px;
+  border-radius: 15px;
+}
 
 .video__edit a,
 .video__delete a {

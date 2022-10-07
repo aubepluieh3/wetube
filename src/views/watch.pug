@@ -21,10 +21,14 @@ block content
                     i.fas.fa-expand
 
     div.video__data
+        div.video__hashtags
+            each hashtag in video.hashtags 
+                div.video__hashtag=hashtag
         p.video__title=video.title
         small.video__owner Uploaded by 
             a(href=`/users/${video.owner._id}`)=video.owner.name
         small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+        
         if String(video.owner._id) === String(loggedInUser._id)
             div.video__edit
                 a(href=`${video.id}/edit`) Edit Video &rarr;
