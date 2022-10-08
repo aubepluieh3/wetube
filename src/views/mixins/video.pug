@@ -2,7 +2,15 @@ mixin video(video)
     a(href=`/videos/${video.id}`).video-mixin
         img(src=video.thumbUrl crossorigin).video-mixin__thumb 
         div.video-mixin__data
-            span.video-mixin__title=video.title
-            div.video-mixin__meta 
-                span #{video.owner.name} • 
-                span #{video.meta.views} 회
+            div.video--mixin__avatar
+                if (!video.owner.avatarUrl)
+                    span 😎
+                else 
+                    img(src=video.owner.avatarUrl, crossorigin).avatar
+                
+            div.video-mixin__meta
+                span.video-mixin__title=video.title 
+                span #{video.owner.name}
+                div.video__mixin__detail
+                    span 조회수 #{video.meta.views}회 • 
+                    span.video-mixin__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {year: 'numeric', month: 'numeric', day: 'numeric'})

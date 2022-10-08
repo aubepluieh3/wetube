@@ -13,18 +13,30 @@
   .video__owner {
     margin-bottom: 5px;
     font-size: 14px;
+    span,
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
     a {
       color: cornflowerblue;
       text-decoration: underline;
     }
+  }
+  .video__detail {
+    height: 100px;
+    background-color: #ececec;
+    font-size: 14px;
+    border-radius: 15px;
   }
   .video__hashtags {
     display: flex;
     margin-bottom: 10px;
     .video__hashtag {
       margin-right: 5px;
-      background-color: grey;
-      color: white;
+      background-color: #ececec;
+      color: black;
       padding: 3px 5px;
       border-radius: 15px;
     }

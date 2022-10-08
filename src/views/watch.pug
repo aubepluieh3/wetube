@@ -25,16 +25,25 @@ block content
             each hashtag in video.hashtags 
                 div.video__hashtag=hashtag
         p.video__title=video.title
-        small.video__owner Uploaded by 
-            a(href=`/users/${video.owner._id}`)=video.owner.name
-        small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
         
+        small.video__owner 
+            a(href=`/users/${video.owner._id}`)
+                if (!video.owner.avatarUrl)
+                    span 😎
+                else 
+                    img(src=video.owner.avatarUrl, crossorigin).avatar
+                span #{video.owner.name}
         if String(video.owner._id) === String(loggedInUser._id)
             div.video__edit
                 a(href=`${video.id}/edit`) Edit Video &rarr;
             br
             div.video__delete
-                a(href=`${video.id}/delete`) Delete Video &rarr;
+                a(href=`${video.id}/delete`) Delete Video &rarr;                
+        
+        div.video__detail
+            span 조회수 #{video.meta.views}회
+            span.video-mixin__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {year: 'numeric', month: 'numeric', day: 'numeric'})
+        
     if loggedIn
         div.video__add-comments
             form.video__comment-form#commentForm
