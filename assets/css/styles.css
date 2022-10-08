@@ -467,7 +467,14 @@ form label {
   font-size: 12px;
   margin-bottom: 10px;
 }
+.video__data .video__line {
+  width: 100%;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgb(253, 216, 228);
+}
 .video__data .video__owner {
+  text-decoration-line: none;
   margin-bottom: 5px;
   font-size: 14px;
 }
@@ -477,15 +484,17 @@ form label {
   height: 30px;
   margin-right: 10px;
 }
-.video__data .video__owner a {
-  color: cornflowerblue;
-  text-decoration: underline;
-}
 .video__data .video__detail {
-  height: 100px;
-  background-color: #ececec;
+  height: 30px;
   font-size: 14px;
   border-radius: 15px;
+  margin: 10px 0px;
+}
+.video__data .video__detail .video__detail__title {
+  margin-bottom: 5px;
+}
+.video__data .video__detail .video__detail__title span {
+  margin-right: 5px;
 }
 .video__data .video__hashtags {
   display: flex;
@@ -499,13 +508,20 @@ form label {
   border-radius: 15px;
 }
 
+.video__fix {
+  display: flex;
+  margin: 10px 0px;
+}
+.video__fix div {
+  margin-right: 5px;
+}
+
 .video__edit a,
 .video__delete a {
   background-color: rgb(255, 155, 178);
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   padding: 0px 5px;
 }
 

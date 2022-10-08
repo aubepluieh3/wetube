@@ -10,7 +10,14 @@
     font-size: 12px;
     margin-bottom: 10px;
   }
+  .video__line {
+    width: 100%;
+    border: 0;
+    height: 0;
+    border-top: 1px solid $lightPink;
+  }
   .video__owner {
+    text-decoration-line: none;
     margin-bottom: 5px;
     font-size: 14px;
     span,
@@ -19,16 +26,18 @@
       height: 30px;
       margin-right: 10px;
     }
-    a {
-      color: cornflowerblue;
-      text-decoration: underline;
-    }
   }
   .video__detail {
-    height: 100px;
-    background-color: #ececec;
+    height: 30px;
     font-size: 14px;
     border-radius: 15px;
+    margin: 10px 0px;
+    .video__detail__title {
+      margin-bottom: 5px;
+      span {
+        margin-right: 5px;
+      }
+    }
   }
   .video__hashtags {
     display: flex;
@@ -43,14 +52,19 @@
   }
 }
 
+.video__fix {
+  display: flex;
+  margin: 10px 0px;
+  div {
+    margin-right: 5px;
+  }
+}
 .video__edit a,
 .video__delete a {
   background-color: $pink;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   padding: 0px 5px;
 }
 
