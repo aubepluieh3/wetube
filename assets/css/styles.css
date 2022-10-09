@@ -200,7 +200,7 @@ footer {
 .video-mixin .video-mixin__data .video-mixin__title {
   font-size: 18px;
   display: block;
-  margin-top: 10px;
+  margin: 8px 0px;
 }
 .video-mixin .video-mixin__data .video--mixin__avatar {
   display: flex;
@@ -214,12 +214,13 @@ footer {
   margin-right: 10px;
 }
 .video-mixin .video-mixin__data .video-mixin__meta {
-  margin-top: 5px;
+  margin-top: 3px;
   font-size: 12px;
   display: flex;
   flex-direction: column;
 }
 .video-mixin .video-mixin__data .video-mixin__meta .video__mixin__detail {
+  margin-top: 6px;
   display: flex;
 }
 .video-mixin .video-mixin__data .video-mixin__meta .video__mixin__detail span {
@@ -477,8 +478,9 @@ form label {
   text-decoration-line: none;
   margin-bottom: 5px;
   font-size: 14px;
+  display: flex;
+  align-items: center;
 }
-.video__data .video__owner span,
 .video__data .video__owner img {
   width: 30px;
   height: 30px;

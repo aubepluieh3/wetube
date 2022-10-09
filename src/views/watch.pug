@@ -33,12 +33,13 @@ block content
             div.video__detail__content
                 span=video.description
         hr.video__line        
-        div.video__owner 
-            a(href=`/users/${video.owner._id}`)
+        
+        a(href=`/users/${video.owner._id}`)
+            div.video__owner         
                 if (!video.owner.avatarUrl)
                     span 😎
                 else 
-                    img(src=video.owner.avatarUrl, crossorigin).avatar
+                     img(src=video.owner.avatarUrl, crossorigin).avatar
                 span #{video.owner.name}
  
 

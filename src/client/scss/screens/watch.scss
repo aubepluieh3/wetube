@@ -20,7 +20,8 @@
     text-decoration-line: none;
     margin-bottom: 5px;
     font-size: 14px;
-    span,
+    display: flex;
+    align-items: center;
     img {
       width: 30px;
       height: 30px;
