@@ -486,6 +486,9 @@ form label {
   height: 30px;
   margin-right: 10px;
 }
+.video__data .video__owner span {
+  font-weight: bold;
+}
 .video__data .video__detail {
   height: 30px;
   font-size: 14px;

@@ -17,12 +17,6 @@ let controlsMovementTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
-const isHeroku = process.env.NODE_ENV === "production";
-
-if (isHeroku && video) {
-  handleLoadedMetadata();
-}
-
 const handlePlayClick = (e) => {
   if (video.paused) {
     video.play();
@@ -137,7 +131,9 @@ const handleEnded = () => {
     method: "POST",
   });
 };
-
+if (video.readyState == 4) {
+  handleLoadedMetadata();
+}
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
