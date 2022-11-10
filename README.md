@@ -83,3 +83,26 @@ fullscreen event 추가
 (22.10.07)
 
 heroku video total time error fix (22.10.09)
+
+## 🖼 ScreenShot
+
+### Youtube
+
+<img src="https://github.com/aubepluieh3/wetube/blob/774ef4e718a817b306bbe78348fae6f2d06b25e1/ScreenShot/Youtube.JPG" width="1000px" height="500px"/>
+
+### Join
+
+<img src="https://github.com/aubepluieh3/wetube/blob/774ef4e718a817b306bbe78348fae6f2d06b25e1/ScreenShot/Join.JPG" width="1000px" height="500px"/>
+
+### Login
+
+<img src="https://github.com/aubepluieh3/wetube/blob/774ef4e718a817b306bbe78348fae6f2d06b25e1/ScreenShot/Login.JPG" width="1000px" height="500px"/>
+
+### Search(Study 검색 경우)
+
+<img src="https://github.com/aubepluieh3/wetube/blob/774ef4e718a817b306bbe78348fae6f2d06b25e1/ScreenShot/Search.JPG" width="1000px" height="500px"/>
+
+### Profile
+
+<img src="https://github.com/aubepluieh3/wetube/blob/774ef4e718a817b306bbe78348fae6f2d06b25e1/ScreenShot/Profile.JPG" width="1000px" height="500px"/>
+
