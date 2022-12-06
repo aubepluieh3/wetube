@@ -1,5 +1,5 @@
 # Wetube💖 
-🎃 https://soo-youtube.herokuapp.com/
+🎃 https://soo-youtube.fly.dev/
 
 22.08.29 ~
 
@@ -84,6 +84,8 @@ fullscreen event 추가
 (22.10.07)
 
 heroku video total time error fix (22.10.09)
+
+End heroku free trial, change to fly.io (22.12.06)  
 
 ## 🖼 ScreenShot
 
